@@ -7,7 +7,7 @@ from pyserini.search import SimpleSearcher
 from typing import Optional
 
 
-searcher = SimpleSearcher.from_prebuilt_index('ms-marco-doc')
+searcher = SimpleSearcher.from_prebuilt_index('msmarco-doc-slim')
 app = FastAPI()
 
 
