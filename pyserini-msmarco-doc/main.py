@@ -1,6 +1,7 @@
 import sys
 
-sys.path.insert(0, '../pyserini/')
+# Only for debugging purposes, using a Pyserini local installation.
+# sys.path.insert(0, '../pyserini/')
 
 from fastapi import FastAPI
 from pyserini.search import SimpleSearcher
@@ -16,9 +17,7 @@ def search(q: str, k: Optional[int] = 1000):
     hits = searcher.search(q, k=k)
 
     results = []
-    # Print the first 10 hits:
     for i in range(0, len(hits)):
-        #print(f'{i + 1:2} {hits[i].docid:15} {hits[i].score:.5f}')
         results.append({'docid': hits[i].docid, 'score': hits[i].score})
 
     return {'results': results}
